@@ -240,7 +240,7 @@ Churn                   ROC-AUC 0.829 out of time
 Basket rules            88 rules from 832 frequent itemsets
 Forecast                28-day projection, MASE 0.790
 Incidents               14 flagged, 93% precision
-Total runtime           ~114 seconds
+Total runtime           ~148 seconds  (including data generation)
 ```
 
 A one-page brief is written to [`reports/EXECUTIVE_SUMMARY.md`](reports/EXECUTIVE_SUMMARY.md)

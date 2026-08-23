@@ -1,14 +1,20 @@
 {
   "stage_seconds": {
-    "etl": 9.03,
-    "customer_analytics": 14.21,
-    "clv": 35.19,
-    "anomaly": 0.48,
-    "churn": 40.52,
-    "forecast": 14.25,
-    "TOTAL": 113.67
+    "generate": 18.57,
+    "etl": 23.39,
+    "customer_analytics": 26.15,
+    "clv": 31.59,
+    "anomaly": 0.76,
+    "churn": 34.35,
+    "forecast": 12.97,
+    "TOTAL": 147.79
   },
   "metrics": {
+    "generate": {
+      "raw_transactions": 222744,
+      "raw_line_items": 603243,
+      "customers": 12000
+    },
     "etl": {
       "quality_score": 99.92,
       "checks_run": 24,
