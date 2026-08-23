@@ -18,7 +18,6 @@ import time
 from contextlib import contextmanager
 from dataclasses import dataclass, field
 
-import numpy as np
 import pandas as pd
 
 from .analytics import (anomaly_events, build_cohort_table, build_rfm,
