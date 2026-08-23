@@ -20,6 +20,9 @@ htmlcov/
 venv/
 env/
 
+# Local scratch (screenshots, notes) - not part of the project
+images/
+
 # Editors / OS
 .vscode/
 .idea/
