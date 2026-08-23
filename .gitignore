@@ -1,0 +1,27 @@
+# Generated data - the pipeline rebuilds all of this deterministically
+data/raw/*.csv
+data/raw/*.json
+data/warehouse/*.db
+data/warehouse/*.db-*
+data/outputs/*.csv
+data/outputs/*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

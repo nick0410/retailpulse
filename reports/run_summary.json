@@ -1,0 +1,242 @@
+{
+  "stage_seconds": {
+    "etl": 9.03,
+    "customer_analytics": 14.21,
+    "clv": 35.19,
+    "anomaly": 0.48,
+    "churn": 40.52,
+    "forecast": 14.25,
+    "TOTAL": 113.67
+  },
+  "metrics": {
+    "etl": {
+      "quality_score": 99.92,
+      "checks_run": 24,
+      "checks_failed": 7,
+      "rows_quarantined": 2439,
+      "warehouse_rows": {
+        "dim_date": 1096,
+        "dim_customer": 12000,
+        "dim_product": 80,
+        "dim_store": 12,
+        "fact_sales": 601691,
+        "mart_daily_store": 13150,
+        "mart_daily_total": 1096,
+        "mart_daily_category": 8768,
+        "dim_promotion": 191
+      },
+      "failed_checks": [
+        {
+          "table": "customers",
+          "check": "city_populated",
+          "rows_failed": 252
+        },
+        {
+          "table": "customers",
+          "check": "email_well_formed",
+          "rows_failed": 156
+        },
+        {
+          "table": "transactions",
+          "check": "transaction_id_unique",
+          "rows_failed": 887
+        },
+        {
+          "table": "transaction_items",
+          "check": "transaction_fk_resolves",
+          "rows_failed": 45
+        },
+        {
+          "table": "transaction_items",
+          "check": "quantity_positive",
+          "rows_failed": 965
+        },
+        {
+          "table": "transaction_items",
+          "check": "unit_price_positive",
+          "rows_failed": 542
+        },
+        {
+          "table": "transaction_items",
+          "check": "line_amount_consistent",
+          "rows_failed": 542
+        }
+      ]
+    },
+    "customer_analytics": {
+      "customers_segmented": 11994,
+      "segments": [
+        {
+          "segment": "Champions",
+          "customers": 2658,
+          "revenue_share": 0.4879
+        },
+        {
+          "segment": "Loyal Customers",
+          "customers": 2204,
+          "revenue_share": 0.1795
+        },
+        {
+          "segment": "At Risk",
+          "customers": 1368,
+          "revenue_share": 0.1363
+        },
+        {
+          "segment": "Cannot Lose Them",
+          "customers": 692,
+          "revenue_share": 0.078
+        },
+        {
+          "segment": "Hibernating",
+          "customers": 2741,
+          "revenue_share": 0.0716
+        },
+        {
+          "segment": "Potential Loyalist",
+          "customers": 1359,
+          "revenue_share": 0.0273
+        },
+        {
+          "segment": "Needs Attention",
+          "customers": 560,
+          "revenue_share": 0.0145
+        },
+        {
+          "segment": "Promising",
+          "customers": 412,
+          "revenue_share": 0.0049
+        }
+      ],
+      "top_1pct_revenue_share": 0.1031,
+      "top_20pct_revenue_share": 0.5932,
+      "month_1_retention": 0.2937,
+      "frequent_itemsets": 832,
+      "association_rules": 88,
+      "top_rule": "Dish Wash Gel -> Scrub Pad (lift 37.2)"
+    },
+    "clv": {
+      "bgnbd": {
+        "r": 0.6947,
+        "alpha": 5.9681,
+        "a": 0.7705,
+        "b": 3.0634,
+        "log_likelihood": -147073.53,
+        "mean_purchase_rate_per_period": 0.11641,
+        "mean_dropout_probability": 0.201
+      },
+      "gamma_gamma": {
+        "p": 3.5976,
+        "q": 13.9634,
+        "v": 6380.28,
+        "log_likelihood": -74324.05,
+        "population_mean_transaction_value": 1770.65
+      },
+      "holdout": {
+        "customers_scored": 9836,
+        "holdout_weeks": 25.71,
+        "predicted_total_transactions": 9735.4,
+        "actual_total_transactions": 9602.0,
+        "aggregate_error_pct": 1.39,
+        "mae_per_customer": 0.8627,
+        "rmse_per_customer": 1.5294,
+        "correlation": 0.6826
+      },
+      "total_clv_12m": 32573250.68,
+      "median_clv_12m": 1237.41,
+      "customers_at_risk": 3684
+    },
+    "anomaly": {
+      "events_detected": 14,
+      "dips": 3,
+      "spikes": 11,
+      "vs_injected_truth": {
+        "injected": 28,
+        "caught": 13,
+        "recall": 0.4643,
+        "detected_events": 14,
+        "false_alarms": 1,
+        "precision": 0.9286
+      }
+    },
+    "churn": {
+      "train_snapshot": "2024-06-30",
+      "test_snapshot": "2024-09-30",
+      "train_rows": 9379,
+      "test_rows": 10683,
+      "gbm": {
+        "n": 10683,
+        "base_churn_rate": 0.7563,
+        "roc_auc": 0.8294,
+        "pr_auc": 0.9363,
+        "brier": 0.1343,
+        "log_loss": 0.4154,
+        "ks": 0.4929
+      },
+      "logistic_baseline": {
+        "n": 10683,
+        "base_churn_rate": 0.7563,
+        "roc_auc": 0.8301,
+        "pr_auc": 0.9339,
+        "brier": 0.1337,
+        "log_loss": 0.4167,
+        "ks": 0.4994
+      },
+      "top_decile_lift": 1.318,
+      "max_possible_lift": 1.322,
+      "top_features": [
+        "recency_days",
+        "overdue_ratio",
+        "purchases_per_year",
+        "frequency",
+        "std_basket_value"
+      ],
+      "best_campaign_by_value": {
+        "target_pct": 1.0,
+        "net_benefit": 555266.02,
+        "roi": 1.299
+      },
+      "best_campaign_by_roi": {
+        "target_pct": 0.05,
+        "net_benefit": 96049.16,
+        "roi": 4.497,
+        "precision": 0.9981
+      }
+    },
+    "forecast": {
+      "horizon_days": 28,
+      "folds": 4,
+      "holt_winters_params": {
+        "alpha": 0.4515,
+        "beta": 0.0001,
+        "gamma": 0.0001,
+        "phi": 0.8,
+        "seasonal": "multiplicative",
+        "period": 7,
+        "final_level": 247684.08,
+        "final_trend": -8.7569
+      },
+      "accuracy_by_model": {
+        "holt_winters": {
+          "mae": 52393.5875,
+          "mape_pct": 14.2028,
+          "smape_pct": 12.9238,
+          "mase": 0.9023
+        },
+        "hybrid": {
+          "mae": 45910.9025,
+          "mape_pct": 12.6005,
+          "smape_pct": 11.463,
+          "mase": 0.7904
+        },
+        "seasonal_naive": {
+          "mae": 61311.07,
+          "mape_pct": 16.94,
+          "smape_pct": 15.3998,
+          "mase": 1.0558
+        }
+      },
+      "improvement_vs_seasonal_naive_pct": 25.14,
+      "next_period_revenue_forecast": 6932161.53
+    }
+  }
+}
